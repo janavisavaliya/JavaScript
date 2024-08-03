@@ -11,7 +11,7 @@
     <center>
         
         <button onclick="incrementcounter()" style="margin-right:20px ;" >+</button>
-        <span style="font-size: 30px;" id="counter">Counter: 0</span>
+        <span style="font-size: 30px;" id="counter">Count-Down: 0</span>
         <button onclick="dicrementcounter()" style="margin-left:20px;" >-</button>
         <button onclick="reset()" style="display: block; margin-top: 20px;" >reset</button>
        
@@ -22,17 +22,17 @@
         let count = 0;
     const incrementcounter = () => {
         count++;
-        document.getElementById('counter').innerHTML= "Counter: "+ count; 
+        document.getElementById('counter').innerHTML= "Count-Down: "+ count; 
     }
     const reset = () => {
         count = 0;
-        document.getElementById('counter').innerHTML="Counter: "+ count; 
+        document.getElementById('counter').innerHTML="Count-Down: "+ count; 
     }
 
     
     const dicrementcounter = () => {
         count--;
-        document.getElementById('counter').innerHTML= "Counter: "+ count; 
+        document.getElementById('counter').innerHTML= "Count-Down: "+ count; 
     }
     
 
