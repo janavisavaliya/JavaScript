@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        
+        <button onclick="incrementcounter()" style="margin-right:20px ;" >+</button>
+        <span style="font-size: 30px;" id="counter">Counter: 0</span>
+        <button onclick="dicrementcounter()" style="margin-left:20px;" >-</button>
+        <button onclick="reset()" style="display: block; margin-top: 20px;" >reset</button>
+       
+
+    </center>
+
+    <script type="text/javascript">
+        let count = 0;
+    const incrementcounter = () => {
+        count++;
+        document.getElementById('counter').innerHTML= "Counter: "+ count; 
+    }
+    const reset = () => {
+        count = 0;
+        document.getElementById('counter').innerHTML="Counter: "+ count; 
+    }
+
+    
+    const dicrementcounter = () => {
+        count--;
+        document.getElementById('counter').innerHTML= "Counter: "+ count; 
+    }
+    
+
+    </script>
+
+</body>
+
+</html>
