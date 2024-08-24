@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+</head>
+
+<body style="display: flex; justify-content: center;">
+    <div class="box" style="display: flex; justify-content: center; text-align: start;width: 500px;height: 500px;align-items:flex-start;align-items: center;background-color: #ffcad469;">
+        <form>
+            <br>
+            <h2 align="center" style="font-family:'Lucida Sans Unicode';font-size:30px;">FORM VALIDATION</h2>
+            <br>
+            Name : <input type="text" id="name" style="padding: 10px;border-radius:5px;border: 1px solid black;width: 250px;">
+            <br>
+            <span id="nameerr" style="color: red;font-family: sans-serif;"></span>
+            <br><br>
+            Gmail : <input type="text" id="email" style="padding: 10px;border-radius:5px;border: 1px solid black;width: 250px;">
+            <br>
+            <span id="emailerr" style="color: red;font-family: sans-serif;"></span>
+            <br><br>
+            Pass : <input type="password" id="pass" style="padding: 10px;border-radius:5px;border: 1px solid black;
+            width: 260px;">
+            <br>
+            <span id="passerr" style="color: red;font-family:sans-serif"></span>
+            <br><br>
+            <button type="button" onclick="formvalidation()" style="background-color: #9c8188;
+            width: 130px;height: 50px;font-size: 15px;color:white;border: 0; text-align: center;">Submit</button>
+            <br><br>
+            <p id="success" style="color: green;"></p>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        const formvalidation = () => {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let Password = document.getElementById('pass').value;
+
+            let check = true
+
+            if (!name) {
+                document.getElementById('nameerr').innerHTML = `name is required`;
+                check = false
+            }
+            if (!email) {
+                document.getElementById('emailerr').innerHTML = `email is required`;
+                check = false
+            }
+            else {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.text(email)) {
+                    document.getElementById(`emailerr`).innerHTML = `email is not valid`;
+                    check = false
+                }
+            }
+            if (!pass) {
+                document.getElementById(`passerr`).innerHTML = `pass is required`;
+            }
+            
+            if (check === true) {
+                document.getElementById('success').innerHTML = "Form is submited";
+            }
+            document.getElementById('name').value = "";
+            document.getElementById('email').value = "";
+            document.getElementById('pass').value = "";
+        }
+    </script>
+</body>
+
+</html>
