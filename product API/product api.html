@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Api</title>
+</head>
+<style>
+    body{
+        background-color: gainsboro;
+    }
+</style>
+<body>
+    <div align="center">
+        <h2 style="font-family: sans-serif;font-weight:700;font-size:25px;">View Product</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>SRNO</th>
+                    <th>IMAGE</th>
+                    <th>TITLE</th>
+                    <th>TAG</th>
+                    <th>REVIEW</th>
+                    <th>IMAGES</th>
+                </tr>
+            </thead>
+            <tbody id="record"></tbody>
+        </table>
+    </div>
+
+    <script>
+        const viewProduct = () => {
+            fetch(`https://dummyjson.com/products`)
+                .then(res => res.json())
+                .then((data) => {
+                    let sum = 0;
+                    let tbl = "";
+                    let products = data.products;
+                    products.map((p, i) => {
+                        tbl += `
+                    <tr>
+                        <td>${++i}</td>
+                        <td>
+                            <img src="${p.thumbnail}" width="150"/>
+                        </td>
+                        <td>${p.title}</td>
+                        <td>
+                             <table>`
+                        p.tags.map((t, j) => {
+                            return (
+                                tbl += `<tr>
+                                <td>${++j}. </td>
+                                <td>${t}</td>
+                                </tr>`
+                            )
+                        })
+
+                        tbl += `</table>
+                                </td>
+                                <td>
+                                <table width="500">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Comment</th>
+                                        <th>Rating</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>`
+                        p.reviews.map((r, k) => {
+                            sum = sum + r.rating
+                            return (
+                                tbl += `
+                                        <tr align="center">
+                                        <td>${r.reviewerName}</td>
+                                        <td>${r.comment}</td>
+                                        <td>${r.rating}</td>                               
+                                        </tr>
+                                         `
+                            )
+                        })
+                        tbl += `
+                                            <tr>
+                                                <td>Sum :- ${sum}</td>
+                                                <td>Avg :- ${sum / p.reviews.length}</td>                           
+                                            </tr>
+                                            `
+                        sum = 0
+                        tbl +=
+                            `
+                                        </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                    <table>`
+                        p.images.map((im) => {
+                            return (
+                                tbl += `
+                                                        <td>
+                                                            <img src="${im}" width="100"/>
+                                                        </td>
+                                                            `
+                            )
+                        })
+                        tbl +=
+                            `
+                                        </table>
+                                    </td>
+                                </tr>
+                            `
+                    })
+                    document.getElementById('record').innerHTML = tbl;
+                })
+        }
+        viewProduct();
+    </script>
+</body>
+
+</html>
