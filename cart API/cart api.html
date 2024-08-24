@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CART</title>
+</head>
+
+<body>
+    <div align="center">
+        <h2>CARTS</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>PRODUCTS</th>
+                </tr>
+            </thead>
+            <tbody id="Carts"></tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+
+        const getAllCart = () => {
+            fetch(`https://dummyjson.com/carts`)
+                .then(res => res.json())
+                .then((data) => {
+                    let tbl = "";
+                    const carts = data.carts;
+                    console.log(carts);
+
+                    carts.map((val,index) => {
+                        tbl += `
+                                <tr>
+                                    <td>${val.id}</td>
+                                    <td>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Id</th>
+                                                    <th>title</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>`
+                                                val.products.map((p,i)=>{
+                                                    return(
+                                                        tbl +=`
+                                                            <tr>   
+                                                                <td>${p.id}</td>
+                                                                <td>${p.title}</td>
+                                                            </tr>   
+                                                        `
+                                                    )
+                                                })
+                                            tbl += `</tbody>
+                                        </table>    
+                                    </td>
+                                </tr>
+                            `
+                    })
+                    document.getElementById('Carts').innerHTML = tbl;
+                })
+        }
+        getAllCart();
+    </script>
+</body>
+
+</html>
