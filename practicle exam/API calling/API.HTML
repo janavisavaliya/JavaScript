@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes - API Calling</title>
+    <link rel="icon" href="book.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recipe List</h1>
+    <table border="2" cellpadding="18">
+        <thead>
+            <tr border="2">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Ingredients</th>
+                <th>Instructions</th>
+                <th>Prep Time (minutes)</th>
+                <th>Cook Time (minutes)</th>
+                <th>Servings</th>
+                <th>Difficulty</th>
+                <th>Cuisine</th>
+                <th>Calories per Serving</th>
+                <th>Tags</th>
+                <th>User ID</th>
+                <th>Rating</th>
+                <th>Image</th>
+                <th>Review Count</th>
+                <th>Meal Type</th>
+            </tr>
+        </thead>
+        <tbody id="record"></tbody>
+    </table>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $.ajax({
+        type: "GET",
+        url: "https://dummyjson.com/recipes",
+        success: function(res) {
+            let tbl = "";
+            if (res && res.recipes) {
+                res.recipes.forEach((val) => {
+                    tbl += `
+                    <tr>
+                        <td>${val.id}</td>
+                        <td>${val.name}</td>
+                        <td>${val.ingredients.join(", ")}</td>
+                        <td>${val.instructions}</td>
+                        <td>${val.prepTimeMinutes}</td>
+                        <td>${val.cookTimeMinutes}</td>
+                        <td>${val.servings}</td>
+                        <td>${val.difficulty}</td>
+                        <td>${val.cuisine}</td>
+                        <td>${val.caloriesPerServing}</td>
+                        <td>${val.tags.join(", ")}</td>
+                        <td>${val.userId}</td>
+                        <td>${val.rating}</td>
+                        <td><img src="${val.image}" alt="Recipe Image" style="width: 100px; height: auto;"></td>
+                        <td>${val.reviewCount}</td>
+                        <td>${val.mealType}</td>
+                    </tr>
+                    `;
+                });
+                document.getElementById('record').innerHTML = tbl;
+            } else {
+                document.getElementById('record').innerHTML = "<tr><td colspan='15'>No recipes found</td></tr>";
+            }
+        },
+        error: function() {
+            document.getElementById('record').innerHTML = "<tr><td colspan='15'>Error loading data</td></tr>";
+        }
+    });
+    </script>
+</body>
+</html>
