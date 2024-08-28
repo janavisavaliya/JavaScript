@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADD TO CART</title>
+    <title>Tanishq – Shop the best gold and diamond jewellery designs from India’s favorite online jewellery store</title>
+    <link rel="icon" href="assets/img/images.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/all.min.css">
 
 </head>
 <style>
     body {
-        background-color: #fcf7ee;
+        background-color: #d1c6b0;
         font-family: Arial, Helvetica, sans-serif;
     }
 
@@ -107,36 +108,52 @@
     }
 
     .product .product-content button {
-        color: black;
+        color: white;
         text-align: center;
         position: relative;
         display: block;
-        background-color: transparent;
+        background-color: #8a3037;
         border: 0;
         margin: 0 auto;
+        width: 150px;
+        padding: 10px 10px;
+        z-index: 1;
     }
 
     .product .product-content button::before {
         content: '';
-        display: block;
-        width: 90%;
-        height: 2px;
         position: absolute;
+        width: 0;
+        height: 100%;
+        top: 0;
+        left: auto;
+        right: 0;
         bottom: 0;
-        left: 5%;
-        background-color: #b67e53;
-        overflow: hidden !important;
+        margin: auto;
+        background-color: #000;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+        transition: 0.5s;
+        opacity: 0;
+        border: 0;
+        z-index: -1;
     }
 
     .product .product-content button:hover::before {
-        left: 5%;
-        width: 50%;
+        left: 0;
+        right: auto;
+        width: 100%;
         transition: 1s;
-        background-color: currentColor;
+        background-color: black;
+        /* z-index: 1; */
+        color: white;
+        opacity: 1;
+        overflow: hidden!important;
     }
 
     .product .product-content button:hover {
-        color: #b67e53;
+        color: #fff;
         transition: 0.5s;
     }
 
@@ -173,17 +190,17 @@
 <body>
     <div class="loader">
         <div class="spin">
-            <img src="assets/img/lilac-Gif-Animation.gif" alt="">
+            <img src="assets/img/logo.svg" alt="">
         </div>
     </div>
 
-    <script src="assets/js/jquery-3.7.1.js"></script>
+    
     <div class="main">
-        <nav class="w-100">
+        <nav class="w-100 mb-3">
             <div class="d-flex align-items-center pt-2 pb-3 px-4">
                 <div class="col-2">
                     <div class="logo ps-3">
-                        <img src="assets/img/logo-removebg-preview.png" alt="" width="114px">
+                        <img src="assets/img/logo.svg" alt="" width="80px">
                     </div>
                 </div>
                 <div class="col-8">
@@ -312,6 +329,7 @@
         </div>
     </div>
 
+    <script src="assets/js/jquery-3.7.1.js"></script>
     <script>
         $(window).on('load', function () {
             $(".loader").fadeOut(3000);
@@ -323,74 +341,74 @@
         let product = [
             {
                 id: 1,
-                name: "Dryness Relief Bar Soap",
-                price: 299,
+                name: "Timeless Chic Bangle",
+                price: 83034,
                 qty: 1,
-                image: "https://wdtlilac.wpengine.com/wp-content/uploads/2023/01/shop-17.jpg",
+                image: "assets/img/1.webp",
                 rate: "assets/img/rating.png"
             },
             {
                 id: 2,
-                name: "Eye And Lip Wrinkle Cream",
-                price: 400,
+                name: "Starry Dual Tone Diamond Stud Earrings",
+                price: 38199,
                 qty: 1,
-                image: "https://wdtlilac.wpengine.com/wp-content/uploads/2023/01/shop-13.jpg",
+                image: "assets/img/2.webp",
                 rate: "assets/img/four.png"
             },
             {
                 id: 3,
-                name: "Face & Body Moisturizing Lotion",
-                price: 570,
+                name: "Shimmering Hexagon Diamond Drop Earrings",
+                price: 45412,
                 qty: 1,
-                image: "https://wdtlilac.wpengine.com/wp-content/uploads/2023/01/shop-20.jpg",
+                image: "assets/img/3.jpg",
                 rate: "assets/img/four.png"
             },
             {
                 id: 4,
-                name: "Anti-Wrinkle Retinol Serum",
-                price: 620,
+                name: "Starry Dazzle Diamond Bracelet",
+                price: 55379,
                 qty: 1,
-                image: "https://wdtlilac.wpengine.com/wp-content/uploads/2023/06/shop-4.jpg",
+                image: "assets/img/4.jpg",
                 rate: "assets/img/rating.png"
             },
             {
                 id: 5,
-                name: "Detangling Hair Spray",
-                price: 500,
+                name: "Intricate Work Fancy Bead Gold Chain",
+                price: 73321,
                 qty: 1,
-                image: "https://wdtlilac.wpengine.com/wp-content/uploads/2023/06/shop-16.jpg",
+                image: "assets/img/5.webp",
                 rate: "assets/img/four.png"
             },
             {
                 id: 6,
-                name: "Dry Skin Moisturizing Body Lotion",
-                price: 499,
+                name: "Delicate Evil Eye Diamond Bracelet",
+                price: 44033,
                 qty: 1,
-                image: "https://wdtlilac.wpengine.com/wp-content/uploads/2023/01/shop-14.jpg",
+                image: "assets/img/6.jpg",
                 rate: "assets/img/rating.png"
             },
             {
                 id: 7,
-                name: "Anti-Age Face Serum",
-                price: 390,
+                name: "Charming Figaro Platinum Chain",
+                price: 52063,
                 qty: 1,
-                image: "https://wdtlilac.wpengine.com/wp-content/uploads/2023/06/shop-9.jpg",
+                image: "assets/img/7.webp",
                 rate: "assets/img/four.png"
             },
             {
                 id: 8,
-                name: "Anti-Aging Face Cream",
-                price: 650,
+                name: "Radiance Of Diamonds Pendant with Chain",
+                price: 64270,
                 qty: 1,
-                image: "https://wdtlilac.wpengine.com/wp-content/uploads/2023/06/shop-18.jpg",
+                image: "assets/img/8.webp",
                 rate: "assets/img/rating.png"
             },
             {
                 id: 9,
-                name: "Anti-Blemish Facial Serum",
-                price: 450,
+                name: "Intricate Diamond Bracelet",
+                price: 28640,
                 qty: 1,
-                image: "https://wdtlilac.wpengine.com/wp-content/uploads/2023/06/shop-12.jpg",
+                image: "assets/img/9.webp",
                 rate: "assets/img/rating.png"
             },
 
@@ -401,7 +419,7 @@
                 tbl += `
                     
 
-                    <div class="col-4">
+                    <div class="col-4 mb-4">
                         <div class="product">
                             <div class="product-img overflow-hidden">
                                 <img src="${val.image}" alt="" width="100%">
@@ -411,7 +429,7 @@
                                 <div class="rating d-flex justify-content-center pb-2">
                                      <img src="${val.rate}" alt="" width="100px">
                                 </div>
-                                <span class="d-block text-center lato pb-2" style="font-size: 16px;">${val.price}</span>
+                                <span class="d-block text-center lato pb-2" style="font-size: 16px;">₹ ${val.price}</span>
                                 <button onclick="addtocart(${val.id})">ADD TO CART</button>
                             </div>
                         </div>
